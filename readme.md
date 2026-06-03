@@ -10,7 +10,7 @@ If the latest tag is pre-release, the pre-release number is incremented by 1.
 used:
 1. add "gitversion_simple" in build-system.requires (in pyproject.toml)
     ```toml
-        [build-system]
+    [build-system]
     requires = [
         "setuptools>=81.0.0",
         "gitversion_simple~=1.0",
