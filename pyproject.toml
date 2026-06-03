@@ -25,6 +25,12 @@ dynamic = ["version"]
 [project.urls]
 source = "https://github.com/zedzhen/gitversion_simple"
 
+[project.entry-points."versioningit.next_version"]
+simple = "gitversion_simple:next_version"
+
+[project.entry-points."versioningit.format"]
+simple = "gitversion_simple:format_"
+
 [project.optional-dependencies]
 dev = [
     'black~=26.5',

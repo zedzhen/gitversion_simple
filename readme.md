@@ -13,7 +13,7 @@ used:
     [build-system]
     requires = [
         "setuptools>=81.0.0",
-        "gitversion_simple~=1.0",
+        "gitversion_simple~=1.1",
     ]
     ```
 2. add in pyproject.toml
