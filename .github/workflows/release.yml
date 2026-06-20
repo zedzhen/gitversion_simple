@@ -22,7 +22,7 @@ jobs:
       - name: Install pypa/build
         run: python -m pip install build
       - name: Build release
-        run: python -m build -s -w
+        run: python tools/builds.py
 
       - name: Upload release
         uses: actions/upload-artifact@v7
