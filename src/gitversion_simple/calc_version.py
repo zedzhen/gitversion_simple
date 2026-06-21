@@ -1,6 +1,14 @@
+__all__ = ["calc_version", "next_version"]
+
 from packaging.version import Version
-from typing_extensions import Any
-from versioningit import InvalidVersionError
+from vcs_versioning import ScmVersion
+
+
+def calc_version(v: ScmVersion) -> Version:
+    if v.dirty or v.distance:
+        return next_version(v.tag)
+    else:
+        return v.tag
 
 
 def from_parts(
@@ -10,8 +18,8 @@ def from_parts(
     post: int | None = None,
     dev: int | None = None,
     local: str | None = None,
-) -> str:
-    return str(Version.from_parts(epoch=epoch, release=release, pre=pre, post=post, dev=dev, local=local))
+) -> Version:
+    return Version.from_parts(epoch=epoch, release=release, pre=pre, post=post, dev=dev, local=local)
 
 
 def update_parts(
@@ -23,7 +31,7 @@ def update_parts(
     post: int | None = None,
     dev: int | None = None,
     local: str | None = None,
-) -> str:
+) -> Version:
     if epoch is None:
         epoch = version.epoch
     if release is None:
@@ -39,15 +47,11 @@ def update_parts(
     return from_parts(epoch, release, pre, post, dev, local)
 
 
-def next_version(*, version: str, branch: str | None = None, params: dict[str, Any]) -> str:
-    try:
-        v = Version(version)
-    except ValueError:
-        raise InvalidVersionError(f"Cannot parse version {version!r}")
-    if v.pre is not None:
-        type_, i = v.pre
+def next_version(version: Version) -> Version:
+    if version.pre is not None:
+        type_, i = version.pre
         i += 1
-        return update_parts(v, pre=(type_, i))
-    vs = list(v.release)
+        return update_parts(version, pre=(type_, i))
+    vs = list(version.release)
     vs[-1] += 1
-    return update_parts(v, release=tuple(vs), pre=("a", 0))
+    return update_parts(version, release=tuple(vs), pre=("a", 0))

@@ -1,42 +1,49 @@
 [build-system]
 requires = [
-    "setuptools>=81.0.0",
-    "versioningit~=3.2",
-    "typing-extensions~=4.14",
     "packaging~=26.1",
+    "setuptools~=82.0",
+    "tomli~=2.0; python_version<'3.11'",
+    "typing-extensions~=4.14",
+    "vcs-versioning~=1.1",
 ]
 
 [project]
-name = "gitversion_simple"
-description = "A simple version based on git for setuptools."
+name = "gitversion-simple"
+description = "A simple version based on git/gh."
 readme = "readme.md"
+license = "Zlib"
+license-files = [ "LICENSE" ]
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
-authors = [
-    { name = "Ярыкин Евгений", email = "pypi@zedzhen.ru" }
-]
-dependencies = [
-    "versioningit~=3.2",
-    "typing-extensions~=4.14",
-    "packaging~=26.1",
-]
-dynamic = ["version"]
+dynamic = [ "dependencies", "optional-dependencies", "version" ]
+
+[[project.authors]]
+name = "Ярыкин Евгений"
+email = "pypi@zedzhen.ru"
 
 [project.urls]
 source = "https://github.com/zedzhen/gitversion_simple"
 
-[project.entry-points."versioningit.next_version"]
-simple = "gitversion_simple:next_version"
-
-[project.entry-points."versioningit.format"]
-simple = "gitversion_simple:format_"
-
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    'black~=26.5',
-    'isort~=8.0',
-    "build==1.5.*",
+    "black~=26.5",
+    "isort~=8.0",
     "pre-commit~=4.6",
+    "pyproject-fmt~=2.25",
+    "setuptools~=82.0",
+    { include-group = "types" },
+]
+requires = [
+    "packaging~=26.1",
+    "tomli~=2.0; python_version<'3.11'",
+    "typing-extensions~=4.14",
+    "vcs-versioning~=1.1",
+]
+types = [
+    "build==1.5.*",
+    "mypy~=2.1",
+    "tomli~=2.0",
+    "types-setuptools~=82.0",
+    { include-group = "requires" },
 ]
 
 [tool.black]
@@ -46,9 +53,16 @@ line-length = 120
 profile = "black"
 line_length = 120
 combine_as_imports = true
+src_paths = [ "src" ]
 
-[tool.versioningit.next-version]
-method = { module = "gitversion_simple", value = "next_version", module-dir = "src" }
+[tool.mypy]
+mypy_path = "src"
+files = [ "src", "tools" ]
+python_version = "3.10"
+warn_unreachable = true
+implicit_reexport = false
+strict = true
 
-[tool.versioningit.format]
-method = { module = "gitversion_simple", value = "format_", module-dir = "src" }
+[[tool.mypy.overrides]]
+module = [ "vcs_versioning", "vcs_versioning.*" ]
+follow_untyped_imports = true

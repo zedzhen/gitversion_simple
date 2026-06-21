@@ -1,0 +1,22 @@
+name: run mypy for PR
+
+on:
+  pull_request
+
+jobs:
+  mypy:
+    name: mypy run
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.14
+
+      - name: MyPy run
+        run: python tools/_mypy.py
