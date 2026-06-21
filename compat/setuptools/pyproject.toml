@@ -1,34 +1,32 @@
 [build-system]
 requires = [
-    "setuptools>=81.0.0",
-    "gitversion_simple~=2.0",
+    "gitversion-simple~=2.0",
+    "setuptools>=81",
 ]
 
 [project]
-name = "gitversion_simple_setuptools"
+name = "gitversion-simple-setuptools"
 description = "setuptools entry points for gitversion_simple"
 readme = "readme.md"
-requires-python = ">=3.10"
 license = "Zlib"
-license-files = ["LICENSE"]
-authors = [
-    { name = "Ярыкин Евгений", email = "pypi@zedzhen.ru" }
-]
-dynamic = ["version"]
-
+license-files = [ "LICENSE" ]
+requires-python = ">=3.10"
+dynamic = [ "version" ]
+[[project.authors]]
+name = "Ярыкин Евгений"
+email = "pypi@zedzhen.ru"
+[project.entry-points."setuptools.finalize_distribution_options"]
+gitversion_simple = "gitversion_simple.integrations.setuptools_:finalize_distribution_options"
 [project.urls]
 source = "https://github.com/zedzhen/gitversion_simple"
 
 [dependency-groups]
 dev = [
-    'black~=26.5',
-    'isort~=8.0',
+    "black~=26.5",
     "build==1.5.*",
+    "isort~=8.0",
     "pre-commit~=4.6",
 ]
-
-[project.entry-points."setuptools.finalize_distribution_options"]
-gitversion_simple = "gitversion_simple.integrations.setuptools_:finalize_distribution_options"
 
 [tool.black]
 line-length = 120
