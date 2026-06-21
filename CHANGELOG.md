@@ -1,7 +1,7 @@
 ## v2.0.0 (unreleased)
 
 * Allocating entry points for setuptools in a separate package (`gitversion_simple_setuptools`)
-* Switching from using versioningit to vcs-versioning
+* Switching from using `versioningit` to `vcs-versioning`
 * Simplify configuration
 * Moving the dev dependency group to `[dependency-group]`. To install, use `pip install --group dev`.
 * Translation added readme.md into Russian.
