@@ -12,21 +12,16 @@ license = "Zlib"
 license-files = [ "LICENSE" ]
 requires-python = ">=3.10"
 dynamic = [ "version" ]
+
 [[project.authors]]
 name = "Ярыкин Евгений"
 email = "pypi@zedzhen.ru"
+
 [project.entry-points."setuptools.finalize_distribution_options"]
 gitversion_simple = "gitversion_simple.integrations.setuptools_:finalize_distribution_options"
+
 [project.urls]
 source = "https://github.com/zedzhen/gitversion_simple"
-
-[dependency-groups]
-dev = [
-    "black~=26.5",
-    "build==1.5.*",
-    "isort~=8.0",
-    "pre-commit~=4.6",
-]
 
 [tool.gitversion_simple]
 vcs_root = "../.."
