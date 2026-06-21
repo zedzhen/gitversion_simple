@@ -1,4 +1,8 @@
-## v2.0.0 (unreleased)
+## v2.0.1 (unreleased)
+
+* There are no changes yet
+
+## v2.0.0 (21.06.2026)
 
 * Allocating entry points for setuptools in a separate package (`gitversion_simple_setuptools`)
 * Switching from using `versioningit` to `vcs-versioning`
