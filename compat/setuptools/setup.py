@@ -1,6 +1,6 @@
-from gitversion_simple.integrations.setuptools_ import finalize_distribution_options
-
 from setuptools import Distribution, setup
+
+from gitversion_simple.integrations.setuptools_ import finalize_distribution_options
 
 _finalize_options = Distribution.finalize_options
 

@@ -3,10 +3,11 @@ __all__ = ["get_version"]
 from collections.abc import Iterable
 from os import PathLike
 
+from packaging.version import Version
+
 from gitversion_simple.calc_version import calc_version
 from gitversion_simple.finder.abc import Finder
 from gitversion_simple.finder.smart import find as smart_find
-from packaging.version import Version
 
 
 def get_version(directory: str | PathLike[str] = ".", finders: Iterable[Finder] = (smart_find,)) -> Version:

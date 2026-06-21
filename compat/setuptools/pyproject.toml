@@ -28,13 +28,5 @@ dev = [
     "pre-commit~=4.6",
 ]
 
-[tool.black]
-line-length = 120
-
-[tool.isort]
-profile = "black"
-line_length = 120
-combine_as_imports = true
-
 [tool.gitversion_simple]
 vcs_root = "../.."
