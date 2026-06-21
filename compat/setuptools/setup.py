@@ -1,15 +1,5 @@
-from setuptools import Distribution, setup
+from setuptools import setup
 
-from gitversion_simple.integrations.setuptools_ import finalize_distribution_options
+from gitversion_simple.version import get_with_config
 
-_finalize_options = Distribution.finalize_options
-
-
-def finalize_options(self: Distribution) -> None:
-    _finalize_options(self)
-    finalize_distribution_options(self)
-
-
-Distribution.finalize_options = finalize_options
-
-setup()
+setup(version=get_with_config())
