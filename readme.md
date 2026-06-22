@@ -16,7 +16,7 @@ add `gitversion_simple[setuptools]` in build-system.requires (in pyproject.toml)
 [build-system]
 requires = [
   "setuptools>=81.0.0",
-  "gitversion_simple[setuptools]~=1.1",
+  "gitversion_simple[setuptools]~=2.0",
 ]
 ```
 
@@ -26,6 +26,26 @@ If you use a different backend for the build:
 3. *If this is a public builder, create a PR/issue to add
 
 This project is based on `vcs-versioning`, so it supports the entry point [`setuptools_scm.parse_scm`](https://setuptools-scm.readthedocs.io/en/latest/extending/#adding-a-new-scm).
+
+If the file `pyproject.toml` is not located in the root of the repository, then specify the path to the root of the repository in the `vcs_root` parameter in the `tool.gitversion_simple` table.
+
+For the following repository
+```text
+git_folder/
+├─ .git/
+├─ my_project
+│  ├─ ...
+│  └─ pyproject.toml
+├─ my_project2
+│  ├─ ...
+│  └─ pyproject.toml
+└ README.md
+```
+Add to both `pyproject.toml` files
+```toml
+[tool.gitversion_simple]
+vcs_root = ".."
+```
 
 ### examples:
 
@@ -56,7 +76,7 @@ This project is based on `vcs-versioning`, so it supports the entry point [`setu
 [build-system]
 requires = [
   "setuptools>=81.0.0",
-  "gitversion_simple[setuptools]~=1.1",
+  "gitversion_simple[setuptools]~=2.0",
 ]
 ```
 
@@ -66,6 +86,26 @@ requires = [
 3. *Если это публичный сборщик, создайте PR/issue на добавление
 
 Этот проект основан на `vcs-versioning`, поэтому он поддерживает точку входа [`setuptools_scm.parse_scm`](https://setuptools-scm.readthedocs.io/en/latest/extending/#adding-a-new-scm).
+
+Если файл `pyproject.toml` находиться не в корне репозитория, то укажите путь до корня репозитория в параметре `vcs_root` в таблице `tool.gitversion_simple`.
+
+Для следующего репозитория
+```text
+git_folder/
+├─ .git/
+├─ my_project
+│  ├─ ...
+│  └─ pyproject.toml
+├─ my_project2
+│  ├─ ...
+│  └─ pyproject.toml
+└ README.md
+```
+Добавьте в оба файла `pyproject.toml`
+```toml
+[tool.gitversion_simple]
+vcs_root = ".."
+```
 
 ### примеры:
 
