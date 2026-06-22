@@ -1,4 +1,8 @@
-## v2.0.1 (unreleased)
+## v2.0.2 (unreleased)
+
+* There are no changes yet
+
+## v2.0.1 (22.06.2026)
 
 * update readme
 
