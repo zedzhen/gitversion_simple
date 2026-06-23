@@ -1,6 +1,7 @@
-## v2.0.2 (unreleased)
+## unreleased
 
-* There are no changes yet
+* Update vcs-versioning from ~=1.1 to ~=2.1
+* Using `vcs_versioning.discover_workdir` instead of `setuptools_scm.parse_scm` (`setuptools_scm.parse_scm` is legacy)
 
 ## v2.0.1 (22.06.2026)
 

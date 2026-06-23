@@ -25,7 +25,7 @@ If you use a different backend for the build:
 2. Manually call `gitversion_simple.version.get_version` or `gitversion_simple.version.get_with_config`
 3. *If this is a public builder, create a PR/issue to add
 
-This project is based on `vcs-versioning`, so it supports the entry point [`setuptools_scm.parse_scm`](https://setuptools-scm.readthedocs.io/en/latest/extending/#adding-a-new-scm).
+This project is based on `vcs-versioning`, so it supports the entry point [`vcs_versioning.discover_workdir`](https://setuptools-scm.readthedocs.io/en/latest/extending/#adding-a-workdir-discovery-factory).
 
 If the file `pyproject.toml` is not located in the root of the repository, then specify the path to the root of the repository in the `vcs_root` parameter in the `tool.gitversion_simple` table.
 
@@ -85,7 +85,7 @@ requires = [
 2. Вручную вызовите `gitversion_simple.version.get_version` или `gitversion_simple.version.get_with_config`
 3. *Если это публичный сборщик, создайте PR/issue на добавление
 
-Этот проект основан на `vcs-versioning`, поэтому он поддерживает точку входа [`setuptools_scm.parse_scm`](https://setuptools-scm.readthedocs.io/en/latest/extending/#adding-a-new-scm).
+Этот проект основан на `vcs-versioning`, поэтому он поддерживает точку входа [`vcs_versioning.discover_workdir`](https://setuptools-scm.readthedocs.io/en/latest/extending/#adding-a-workdir-discovery-factory).
 
 Если файл `pyproject.toml` находиться не в корне репозитория, то укажите путь до корня репозитория в параметре `vcs_root` в таблице `tool.gitversion_simple`.
 
