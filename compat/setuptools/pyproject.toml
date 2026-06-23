@@ -1,6 +1,6 @@
 [build-system]
 requires = [
-    "gitversion-simple~=2.0",
+    "gitversion-simple~=3.0",
     "setuptools>=81",
 ]
 

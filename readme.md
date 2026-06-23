@@ -16,7 +16,7 @@ add `gitversion_simple[setuptools]` in build-system.requires (in pyproject.toml)
 [build-system]
 requires = [
   "setuptools>=81.0.0",
-  "gitversion_simple[setuptools]~=2.0",
+  "gitversion_simple[setuptools]~=3.0",
 ]
 ```
 
@@ -76,7 +76,7 @@ vcs_root = ".."
 [build-system]
 requires = [
   "setuptools>=81.0.0",
-  "gitversion_simple[setuptools]~=2.0",
+  "gitversion_simple[setuptools]~=3.0",
 ]
 ```
 
