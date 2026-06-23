@@ -4,7 +4,7 @@ requires = [
     "setuptools~=82.0",
     "tomli~=2.0; python_version<'3.11'",
     "typing-extensions~=4.14",
-    "vcs-versioning~=1.1",
+    "vcs-versioning~=2.1",
 ]
 
 [project]
@@ -36,7 +36,7 @@ requires = [
     "packaging~=26.1",
     "tomli~=2.0; python_version<'3.11'",
     "typing-extensions~=4.14",
-    "vcs-versioning~=1.1",
+    "vcs-versioning~=2.1",
 ]
 types = [
     "build==1.5.*",
@@ -62,7 +62,3 @@ python_version = "3.10"
 warn_unreachable = true
 implicit_reexport = false
 strict = true
-
-[[tool.mypy.overrides]]
-module = [ "vcs_versioning", "vcs_versioning.*" ]
-follow_untyped_imports = true
