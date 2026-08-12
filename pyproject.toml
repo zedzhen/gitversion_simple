@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "packaging~=26.1",
-    "setuptools>=82,<84",
+    "setuptools>=82,<85",
     "tomli~=2.0; python_version<'3.11'",
     "typing-extensions~=4.14",
     "vcs-versioning~=2.1",
@@ -29,7 +29,7 @@ dev = [
     "isort~=8.0",
     "pre-commit~=4.6",
     "pyproject-fmt~=2.25",
-    "setuptools>=82,<84",
+    "setuptools>=82,<85",
     { include-group = "types" },
 ]
 requires = [
