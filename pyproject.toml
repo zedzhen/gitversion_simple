@@ -42,7 +42,7 @@ types = [
     "build==1.5.*",
     "mypy~=2.1",
     "tomli~=2.0",
-    "types-setuptools>=82,<84",
+    "types-setuptools>=82,<85",
     { include-group = "requires" },
 ]
 
