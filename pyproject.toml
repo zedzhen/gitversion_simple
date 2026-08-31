@@ -39,7 +39,7 @@ requires = [
     "vcs-versioning~=2.1",
 ]
 types = [
-    "build==1.5.*",
+    "build>=1.5,<1.7",
     "mypy~=2.1",
     "tomli~=2.0",
     "types-setuptools>=82,<85",
